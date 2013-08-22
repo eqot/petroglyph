@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('petroglyphApp')
-  .factory('content', function ($http) {
+  .factory('Content', function ($http) {
 
     var DB_URL = '//192.168.33.10:3000/petroglyph/contents';
 
