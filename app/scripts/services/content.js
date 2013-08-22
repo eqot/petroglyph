@@ -1,16 +1,46 @@
 'use strict';
 
 angular.module('petroglyphApp')
-  .factory('content', function () {
-    // Service logic
-    // ...
+  .factory('content', function ($http) {
 
-    var meaningOfLife = 42;
+    var DB_URL = '//192.168.33.10:3000/petroglyph/contents';
 
-    // Public API here
     return {
-      someMethod: function () {
-        return meaningOfLife;
+      query: function (callback) {
+        $http.get(DB_URL).success(function (res) {
+          if (callback) {
+            callback(res);
+          }
+        });
+      },
+
+      get: function (id, callback) {
+        $http.get(DB_URL + '/' + id).success(function (res) {
+          if (callback) {
+            callback(res);
+          }
+        });
+      },
+
+      save: function (data, callback) {
+        $http.post(DB_URL, data).success(function (res) {
+          if (callback) {
+            callback(res);
+          }
+        });
+      },
+
+      update: function (id, data, callback) {
+        $http.put(DB_URL + '/' + id, data).success(function (res) {
+          if (callback) {
+            callback(res);
+          }
+        });
+      },
+
+      remove: function (id) {
+        $http.delete(DB_URL + '/' + id);
       }
+
     };
   });
