@@ -2,9 +2,9 @@
 
 angular.module('petroglyphApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
+    $scope.contents = [
+      {url: 'test0'},
+      {url: 'test1'},
+      {url: 'test2'}
     ];
   });
