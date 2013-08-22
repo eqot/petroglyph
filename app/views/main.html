@@ -1,9 +1,14 @@
-<div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
-  <p>You now have</p>
+<div>
+  <input type="text">
+  <button class="btn btn-primary">
+    Add Content
+  </button>
+</div>
+
+<div>
   <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-  </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
+    <li ng-repeat="content in contents">
+      {{content.url}}
+    </li>
+  <ul>
 </div>
