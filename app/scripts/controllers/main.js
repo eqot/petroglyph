@@ -25,4 +25,14 @@ angular.module('petroglyphApp')
       });
     };
 
+    $scope.getThumbnail = function (url) {
+      if (url.match(/^http:\/\/www.youtube.com\/watch\?v=(\w+)/)) {
+        var id = RegExp.$1;
+        console.log(id);
+        return 'http://i.ytimg.com/vi/' + id + '/default.jpg';
+      }
+
+      return null;
+    };
+
   });

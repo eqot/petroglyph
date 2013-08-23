@@ -9,6 +9,7 @@
   <ul>
     <li ng-repeat="content in contents">
       {{content.url}}
+      <img ng-src="{{getThumbnail(content.url)}}">
     </li>
   <ul>
 </div>
