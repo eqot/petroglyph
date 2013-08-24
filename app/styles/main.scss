@@ -39,3 +39,19 @@ body {
 .media {
   margin-bottom: 4px;
 }
+
+.thumbnail-area {
+  position: relative;
+}
+
+.duration {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  font-weight: bold;
+  color: white;
+  background-color: black;
+
+  padding: 1px 6px;
+}
