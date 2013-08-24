@@ -14,4 +14,8 @@ angular.module('petroglyphApp')
       $scope.durationString = YouTube.getDuration(res.data.duration);
     });
 
+    $scope.getPlayerUrl = function () {
+      return YouTube.getIFramePlayerUrl($scope.videoId);
+    };
+
   });

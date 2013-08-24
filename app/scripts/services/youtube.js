@@ -32,6 +32,10 @@ angular.module('petroglyphApp')
         var hour = Math.floor(duration / 3600);
         // console.log(hour + ':' + min + ':' + sec);
         return (hour > 0 ? hour + ':' : '') + min + ':' + (sec < 10 ? '0' + sec : sec);
+      },
+
+      getIFramePlayerUrl: function (videoId) {
+        return 'http://www.youtube.com/embed/' + videoId + '?enablejsapi=1';
       }
     };
 
