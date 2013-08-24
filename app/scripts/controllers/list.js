@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('petroglyphApp')
-  .controller('MainCtrl', function ($scope, Content) {
+  .controller('ListCtrl', function ($scope, Content) {
 
     $scope.contents = null;
     $scope.url = null;

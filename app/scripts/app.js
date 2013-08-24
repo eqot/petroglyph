@@ -5,7 +5,7 @@ angular.module('petroglyphApp', [])
     $routeProvider
       .when('/', {
         templateUrl: 'views/list.html',
-        controller: 'MainCtrl'
+        controller: 'ListCtrl'
       })
       .when('/contents/:id', {
         templateUrl: 'views/content.html',
