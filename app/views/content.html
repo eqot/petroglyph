@@ -1,8 +1,8 @@
 <div class="media">
-  <div class="thumbnail-area pull-left">
+  <a ng-href="contents/{{videoId}}" class="thumbnail-area pull-left">
     <img ng-src="{{thumbnail}}">
     <span class="duration">{{getDuration()}}</span>
-  </div>
+  </a>
 
   <span class="title">{{title}}</span>
   <button class="btn pull-right" ng-click="removeContent(content)">x</button>
