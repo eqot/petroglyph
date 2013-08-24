@@ -31,6 +31,9 @@ body {
     letter-spacing: -1px;
 }
 
+
+// List view
+
 .title {
   font-size: 18px;
   font-weight: bold;
@@ -54,4 +57,12 @@ body {
   background-color: #666;
 
   padding: 1px 6px;
+}
+
+
+// Content view
+
+#player {
+  width: 640px;
+  height: 390px;
 }

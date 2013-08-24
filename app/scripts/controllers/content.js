@@ -3,10 +3,10 @@
 angular.module('petroglyphApp')
   .controller('ContentCtrl', function ($scope, $routeParams, YouTube) {
 
-    var videoId = $routeParams.id;
+    $scope.videoId = $routeParams.id;
     // console.log(videoId);
 
-    YouTube.getInfo(videoId, function (res) {
+    YouTube.getInfo($scope.videoId, function (res) {
       // console.log(res);
       $scope.title = res.data.title;
       $scope.description = res.data.description;
