@@ -6,7 +6,7 @@ angular.module('petroglyphApp')
       restrict: 'E',
       templateUrl: 'views/content.html',
       link: function preLink(scope) {
-        if (scope.content.url.match(/^http:\/\/www.youtube.com\/watch\?v=([\w-]+)/)) {
+        if (scope.content.url.match(/^http:\/\/www.youtube.com\/watch\?v=([\w-]+).*/)) {
           scope.videoId = RegExp.$1;
           // console.log(scope.videoId);
 
