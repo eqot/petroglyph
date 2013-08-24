@@ -20,7 +20,16 @@ angular.module('petroglyphApp')
             });
 
           scope.getDuration = function () {
-            return Math.floor(scope.duration / 60) + ':' + (scope.duration % 60);
+            if (!scope.duration) {
+              return null;
+            }
+
+            // console.log(scope.duration);
+            var sec = scope.duration % 60;
+            var min = Math.floor(scope.duration / 60) % 60;
+            var hour = Math.floor(scope.duration / 3600);
+            // console.log(hour + ':' + min + ':' + sec);
+            return (hour > 0 ? hour + ':' : '') + min + ':' + (sec < 10 ? '0' + sec : sec);
           };
         }
       }
