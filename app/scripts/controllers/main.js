@@ -22,6 +22,8 @@ angular.module('petroglyphApp')
       Content.save(content, function (res) {
         content._id = res._id;
         $scope.contents.push(content);
+
+        $scope.url = null;
       });
     };
 
