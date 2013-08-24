@@ -1,36 +1,23 @@
 'use strict';
 
 angular.module('petroglyphApp')
-  .directive('listitem', function ($http) {
+  .directive('listitem', function (YouTube) {
     return {
       restrict: 'E',
       templateUrl: 'views/listitem.html',
       link: function preLink(scope) {
-        if (scope.content.url.match(/^http:\/\/www.youtube.com\/watch\?v=([\w-]+).*/)) {
-          scope.videoId = RegExp.$1;
-          // console.log(scope.videoId);
+        var videoId = YouTube.getVideoId(scope.content.url);
+        // console.log(videoId);
 
-          $http.jsonp('http://gdata.youtube.com/feeds/api/videos/' + scope.videoId + '?v=2&alt=jsonc&callback=JSON_CALLBACK')
-            .success(function (res) {
-              // console.log(res);
-              scope.title = res.data.title;
-              scope.description = res.data.description;
-              scope.thumbnail = res.data.thumbnail.sqDefault;
-              scope.duration = res.data.duration;
-            });
-
-          scope.getDuration = function () {
-            if (!scope.duration) {
-              return null;
-            }
-
-            // console.log(scope.duration);
-            var sec = scope.duration % 60;
-            var min = Math.floor(scope.duration / 60) % 60;
-            var hour = Math.floor(scope.duration / 3600);
-            // console.log(hour + ':' + min + ':' + sec);
-            return (hour > 0 ? hour + ':' : '') + min + ':' + (sec < 10 ? '0' + sec : sec);
-          };
+        if (videoId) {
+          YouTube.getInfo(videoId, function (res) {
+            // console.log(res);
+            scope.title = res.data.title;
+            scope.description = res.data.description;
+            scope.thumbnail = res.data.thumbnail.sqDefault;
+            // scope.duration = res.data.duration;
+            scope.durationString = YouTube.getDuration(res.data.duration);
+          });
         }
       }
     };

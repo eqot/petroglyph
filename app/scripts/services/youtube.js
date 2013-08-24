@@ -22,11 +22,11 @@ angular.module('petroglyphApp')
       },
 
       getDuration: function (duration) {
+        // console.log(duration);
         if (!duration) {
           return null;
         }
 
-        // console.log(scope.duration);
         var sec = duration % 60;
         var min = Math.floor(duration / 60) % 60;
         var hour = Math.floor(duration / 3600);
