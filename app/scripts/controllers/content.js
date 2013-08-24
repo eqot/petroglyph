@@ -11,7 +11,6 @@ angular.module('petroglyphApp')
       $scope.title = res.data.title;
       $scope.description = res.data.description;
       $scope.thumbnail = res.data.thumbnail.sqDefault;
-      $scope.duration = res.data.duration;
       $scope.durationString = YouTube.getDuration(res.data.duration);
     });
 
