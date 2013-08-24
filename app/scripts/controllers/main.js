@@ -25,4 +25,14 @@ angular.module('petroglyphApp')
       });
     };
 
+    $scope.removeContent = function (content) {
+      var index = $scope.contents.indexOf(content);
+      // console.log(index);
+      if (index !== -1) {
+        $scope.contents.splice(index, 1);
+
+        Content.remove(content._id);
+      }
+    };
+
   });

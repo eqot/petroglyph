@@ -1,6 +1,9 @@
 <div class="media">
   <img ng-src="{{thumbnail}}" class="pull-left">
+
   <span class="title">{{title}}</span>
   <span>({{getDuration()}})</span>
+  <button class="btn pull-right" ng-click="removeContent(content)">x</button>
+
   <p>{{description}}</p>
 </div>

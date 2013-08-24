@@ -38,8 +38,12 @@ angular.module('petroglyphApp')
         });
       },
 
-      remove: function (id) {
-        $http.delete(DB_URL + '/' + id);
+      remove: function (id, callback) {
+        $http.delete(DB_URL + '/' + id).success(function (res) {
+          if (callback) {
+            callback(res);
+          }
+        });
       }
 
     };
