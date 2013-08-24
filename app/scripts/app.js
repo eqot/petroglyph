@@ -7,6 +7,10 @@ angular.module('petroglyphApp', [])
         templateUrl: 'views/list.html',
         controller: 'MainCtrl'
       })
+      .when('/contents/:id', {
+        templateUrl: 'views/content.html',
+        controller: 'ContentCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
