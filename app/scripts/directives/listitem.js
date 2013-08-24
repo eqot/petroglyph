@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('petroglyphApp')
-  .directive('content', function ($http) {
+  .directive('listitem', function ($http) {
     return {
       restrict: 'E',
-      templateUrl: 'views/content.html',
+      templateUrl: 'views/listitem.html',
       link: function preLink(scope) {
         if (scope.content.url.match(/^http:\/\/www.youtube.com\/watch\?v=([\w-]+).*/)) {
           scope.videoId = RegExp.$1;

@@ -4,7 +4,7 @@ angular.module('petroglyphApp', [])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/list.html',
         controller: 'MainCtrl'
       })
       .otherwise({
