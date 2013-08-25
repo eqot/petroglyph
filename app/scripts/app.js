@@ -4,6 +4,10 @@ angular.module('petroglyphApp', ['ngRoute', 'ngResource'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
+        templateUrl: 'views/home.html',
+        controller: 'HomeCtrl'
+      })
+      .when('/contents', {
         templateUrl: 'views/list.html',
         controller: 'ListCtrl'
       })
