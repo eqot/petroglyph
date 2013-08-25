@@ -1,11 +1,13 @@
 <div class="media">
-  <a ng-href="/#/contents/{{videoId}}" class="thumbnail-area pull-left">
-    <img ng-src="{{thumbnail}}">
-    <span class="duration">{{durationString}}</span>
+  <a ng-href="/#/contents/{{videoId}}">
+    <div class="thumbnail-area pull-left">
+      <img ng-src="{{thumbnail}}">
+      <span class="duration">{{durationString}}</span>
+    </div>
+
+    <span class="title">{{title}}</span>
+    <button class="btn pull-right" ng-click="removeContent(content)">x</button>
+
+    <p>{{description}}</p>
   </a>
-
-  <span class="title">{{title}}</span>
-  <button class="btn pull-right" ng-click="removeContent(content)">x</button>
-
-  <p>{{description}}</p>
 </div>
