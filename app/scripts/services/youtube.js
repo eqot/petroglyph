@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('petroglyphApp')
-  .service('YouTube', function Youtube($http) {
+  .service('YouTube', function Youtube($http, $sce) {
 
     return {
       getVideoId: function (url) {
@@ -35,7 +35,7 @@ angular.module('petroglyphApp')
       },
 
       getIFramePlayerUrl: function (videoId) {
-        return 'http://www.youtube.com/embed/' + videoId + '?enablejsapi=1';
+        return $sce.trustAsResourceUrl('http://www.youtube.com/embed/' + videoId + '?enablejsapi=1');
       }
     };
 
