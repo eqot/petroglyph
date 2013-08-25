@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('petroglyphApp', [])
+angular.module('petroglyphApp', ['ngRoute', 'ngResource'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
