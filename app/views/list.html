@@ -1,14 +1,12 @@
-<div>
-  <input type="text" ng-model="url">
-  <button class="btn btn-primary" ng-click="addContent()">
-    Add Content
-  </button>
-</div>
+<div class="row">
+  <div>
+    <input type="text" ng-model="url">
+    <button class="btn btn-primary" ng-click="addContent()">
+      Add Content
+    </button>
+  </div>
 
-<div>
-  <ul>
-    <li ng-repeat="content in contents">
-      <listitem ng-model="content"></listitem>
-    </li>
-  <ul>
+  <div class="col-sm-12">
+    <listitem ng-repeat="content in contents" ng-model="content"></listitem>
+  </div>
 </div>
