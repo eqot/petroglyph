@@ -341,6 +341,18 @@ module.exports = function (grunt) {
           ]
         }
       }
+    },
+    replace: {
+      dist: {
+        options: {
+          variables: {
+            'google_crednetial': '<%= grunt.file.read("app/scripts/controllers/org/googleClientId.txt") %>'
+          }
+        },
+        files: [
+          {expand: true, flatten: true, src: ['app/scripts/controllers/org/home.js'], dest: 'app/scripts/controllers'}
+        ]
+      }
     }
   });
 
@@ -351,6 +363,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'replace',
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
@@ -369,6 +382,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'replace',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
