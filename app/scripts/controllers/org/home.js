@@ -8,7 +8,8 @@ angular.module('petroglyphApp')
     var OAUTH2_CLIENT_ID = '@@google_crednetial';
     var OAUTH2_SCOPES = [
       // 'https://www.googleapis.com/auth/yt-analytics.readonly',
-      'https://www.googleapis.com/auth/youtube.readonly'
+      'https://www.googleapis.com/auth/youtube.readonly',
+      'https://www.googleapis.com/auth/userinfo.email'
     ];
 
     gapi.auth.init(function() {
@@ -51,10 +52,31 @@ angular.module('petroglyphApp')
           getUserChannel();
         });
       });
+
+      getUserInfo();
+
+      gapi.client.load('oauth2', 'v2', function() {
+        var request = gapi.client.oauth2.userinfo.get();
+        request.execute(function (res) {
+          console.log(res.email);
+        });
+      });
+    }
+
+    function getUserInfo () {
+      gapi.client.load('plus','v1', function(){
+        var request = gapi.client.plus.people.list({
+          'userId': 'me',
+          'collection': 'visible'
+        });
+        request.execute(function(resp) {
+          console.log('Num people visible:' + resp.totalItems);
+        });
+      });
     }
 
     function getUserChannel() {
-      console.log('ok');
+      console.log('getUserChannel()');
 
       var request = gapi.client.youtube.channels.list({
         mine: true,
