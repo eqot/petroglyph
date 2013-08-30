@@ -15,18 +15,16 @@ angular.module('petroglyphApp')
     $rootScope.account = 'Sign in';
 
     gapi.auth.init(function() {
-      setTimeout(checkAuth, 1);
+      setTimeout($scope.signInGoogle, 1);
     });
 
-    function checkAuth () {
-      console.log('checkAuth()');
-
+    $scope.signInGoogle = function (immediate) {
       gapi.auth.authorize({
         client_id: OAUTH2_CLIENT_ID,
         scope: OAUTH2_SCOPES,
-        immediate: true
+        immediate: immediate || true
       }, handleAuthResult);
-    }
+    };
 
     function handleAuthResult (authResult) {
       console.log('handleAuthResult()');
@@ -39,14 +37,6 @@ angular.module('petroglyphApp')
         console.log('Failed.');
       }
     }
-
-    $scope.signInGoogle = function () {
-      gapi.auth.authorize({
-        client_id: OAUTH2_CLIENT_ID,
-        scope: OAUTH2_SCOPES,
-        immediate: false
-      }, handleAuthResult);
-    };
 
     function loadAPIClientInterfaces() {
       gapi.client.load('youtube', 'v3', function() {
