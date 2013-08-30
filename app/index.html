@@ -51,9 +51,9 @@
                 {{account}} <span class="caret"></span>
               </button>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Setting</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Sign out</a></li>
+                <li ng-repeat="item in accountMenu" ng-class="{divider: item.divider}">
+                  <a ng-href="{{item.url}}">{{item.label}}</a>
+                </li>
               </ul>
             </div>
           </form>

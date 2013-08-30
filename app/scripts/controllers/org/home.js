@@ -13,6 +13,11 @@ angular.module('petroglyphApp')
     ];
 
     $rootScope.account = 'Sign in';
+    $rootScope.accountMenu = [
+      {label: 'Setting', url: '#'},
+      {divider: true},
+      {label: 'Sign out', url: '#'},
+    ];
 
     gapi.auth.init(function() {
       setTimeout($scope.signInGoogle, 1);
