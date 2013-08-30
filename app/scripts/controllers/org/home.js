@@ -3,7 +3,7 @@
 'use strict';
 
 angular.module('petroglyphApp')
-  .controller('HomeCtrl', function ($scope) {
+  .controller('HomeCtrl', function ($scope, $rootScope) {
 
     var OAUTH2_CLIENT_ID = '@@google_crednetial';
     var OAUTH2_SCOPES = [
@@ -11,6 +11,8 @@ angular.module('petroglyphApp')
       'https://www.googleapis.com/auth/youtube.readonly',
       'https://www.googleapis.com/auth/userinfo.email'
     ];
+
+    $rootScope.account = 'Sign in';
 
     gapi.auth.init(function() {
       setTimeout(checkAuth, 1);
@@ -58,7 +60,10 @@ angular.module('petroglyphApp')
       gapi.client.load('oauth2', 'v2', function() {
         var request = gapi.client.oauth2.userinfo.get();
         request.execute(function (res) {
-          console.log(res.email);
+          if (res.email) {
+            $rootScope.account = res.email;
+            $rootScope.$apply();
+          }
         });
       });
     }
