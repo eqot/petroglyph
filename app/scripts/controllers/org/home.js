@@ -38,7 +38,7 @@ angular.module('petroglyphApp')
       }
     }
 
-    $scope.signin = function () {
+    $scope.signin_google = function () {
       gapi.auth.authorize({
         client_id: OAUTH2_CLIENT_ID,
         scope: OAUTH2_SCOPES,
