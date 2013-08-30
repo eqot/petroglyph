@@ -3,5 +3,3 @@ dist
 .tmp
 .sass-cache
 app/bower_components
-app/scripts/controllers/org/googleClientId.txt
-app/scripts/controllers/home.js
