@@ -5,6 +5,15 @@
 angular.module('petroglyphApp')
   .service('oauthGoogle', function Oauthgoogle($rootScope) {
 
+    var timer = setInterval(function () {
+      if (gapi) {
+        clearInterval(timer);
+        timer = null;
+
+        initialize();
+      }
+    }, 100);
+
     var authenticated = false;
 
     // var OAUTH2_CLIENT_ID = '@@google_crednetial';
@@ -14,6 +23,12 @@ angular.module('petroglyphApp')
       'https://www.googleapis.com/auth/youtube.readonly'
       // 'https://www.googleapis.com/auth/yt-analytics.readonly'
     ];
+
+    function initialize (scope) {
+      gapi.auth.init(function() {
+        setTimeout(signIn, 1);
+      });
+    }
 
     function signIn (immediate) {
       if (authenticated) {
@@ -95,17 +110,7 @@ angular.module('petroglyphApp')
     }
 
     return {
-      signIn: signIn,
-
-      initialize: function (scope) {
-        gapi.auth.init(function() {
-          setTimeout(signIn, 1);
-        });
-
-        scope.signInGoogle = function (immediate) {
-          signIn(immediate);
-        };
-      }
+      signIn: signIn
     };
 
   });

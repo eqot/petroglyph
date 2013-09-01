@@ -3,6 +3,8 @@
 angular.module('petroglyphApp')
   .controller('HomeCtrl', function ($scope, oauthGoogle) {
 
-    oauthGoogle.initialize($scope);
+    $scope.signInGoogle = function (immediate) {
+      oauthGoogle.signIn(immediate);
+    };
 
   });
