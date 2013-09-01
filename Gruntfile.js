@@ -46,7 +46,7 @@ module.exports = function (grunt) {
         tasks: ['copy:styles', 'autoprefixer']
       },
       replace: {
-        files: ['<%= yeoman.app %>/scripts/controllers/org/*.js'],
+        files: ['<%= yeoman.app %>/scripts/services/oauthGoogle.js'],
         tasks: ['replace']
       },
       livereload: {
@@ -57,6 +57,7 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
           '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
+          '!<%= yeoman.app %>/scripts/services/oauthGoogle.js',
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
@@ -350,11 +351,11 @@ module.exports = function (grunt) {
       dist: {
         options: {
           variables: {
-            'google_crednetial': '<%= grunt.file.read("app/scripts/controllers/org/googleClientId.txt") %>'
+            'google_crednetial': '<%= grunt.file.read("googleClientId.txt") %>'
           }
         },
         files: [
-          {expand: true, flatten: true, src: ['app/scripts/controllers/org/home.js'], dest: 'app/scripts/controllers'}
+          {expand: true, flatten: true, src: ['app/scripts/services/oauthGoogle.js'], dest: '.tmp/scripts/services'}
         ]
       }
     }
@@ -367,7 +368,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      // 'replace',
+      'replace',
       'concurrent:server',
       'autoprefixer',
       'connect:livereload',
@@ -386,7 +387,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    // 'replace',
+    'replace',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',

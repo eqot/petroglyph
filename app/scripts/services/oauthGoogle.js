@@ -16,8 +16,7 @@ angular.module('petroglyphApp')
 
     var authenticated = false;
 
-    // var OAUTH2_CLIENT_ID = '@@google_crednetial';
-    var OAUTH2_CLIENT_ID = '412214875153.apps.googleusercontent.com';
+    var OAUTH2_CLIENT_ID = '@@google_crednetial';
     var OAUTH2_SCOPES = [
       'https://www.googleapis.com/auth/userinfo.email',
       'https://www.googleapis.com/auth/youtube.readonly'
