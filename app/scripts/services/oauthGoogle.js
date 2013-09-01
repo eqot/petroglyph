@@ -5,6 +5,8 @@
 angular.module('petroglyphApp')
   .service('oauthGoogle', function Oauthgoogle($rootScope) {
 
+    var authenticated = false;
+
     // var OAUTH2_CLIENT_ID = '@@google_crednetial';
     var OAUTH2_CLIENT_ID = '412214875153.apps.googleusercontent.com';
     var OAUTH2_SCOPES = [
@@ -14,6 +16,10 @@ angular.module('petroglyphApp')
     ];
 
     function signIn (immediate) {
+      if (authenticated) {
+        return;
+      }
+
       gapi.auth.authorize({
         client_id: OAUTH2_CLIENT_ID,
         scope: OAUTH2_SCOPES,
@@ -26,6 +32,9 @@ angular.module('petroglyphApp')
 
       if (authResult) {
         console.log('Authenticated.');
+
+        authenticated = true;
+
         loadAPIClientInterfaces();
       } else {
         console.log('Failed.');
