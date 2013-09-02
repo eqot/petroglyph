@@ -1,0 +1,3 @@
+[submodule "app/scripts/modules/angular-oauth-google"]
+	path = app/scripts/modules/angular-oauth-google
+	url = https://github.com/eqot/angular-oauth-google.git
