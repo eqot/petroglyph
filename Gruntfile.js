@@ -46,7 +46,7 @@ module.exports = function (grunt) {
         tasks: ['copy:styles', 'autoprefixer']
       },
       replace: {
-        files: ['<%= yeoman.app %>/scripts/services/oauthGoogle.js'],
+        files: ['<%= yeoman.app %>/scripts/modules/angular-oauth-google/angular-oauth-google.js'],
         tasks: ['replace']
       },
       livereload: {
@@ -354,9 +354,12 @@ module.exports = function (grunt) {
             'google_crednetial': '<%= grunt.file.read("googleClientId.txt") %>'
           }
         },
-        files: [
-          {expand: true, flatten: true, src: ['app/scripts/services/oauthGoogle.js'], dest: '.tmp/scripts/services'}
-        ]
+        files: [{
+          expand: true,
+          flatten: true,
+          src: ['app/scripts/modules/angular-oauth-google/angular-oauth-google.js'],
+          dest: '.tmp/scripts/modules/angular-oauth-google'
+        }]
       }
     }
   });
