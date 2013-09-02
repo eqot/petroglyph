@@ -69,6 +69,13 @@ angular.module('petroglyphApp')
         request.execute(function (res) {
           if (res.email) {
             $rootScope.account = res.email;
+
+            $rootScope.accountMenu = [
+              {label: 'Setting', url: '#'},
+              {divider: true},
+              {label: 'Sign out', url: '#'},
+            ];
+
             $rootScope.$apply();
           }
         });
