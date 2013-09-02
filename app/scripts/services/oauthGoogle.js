@@ -76,6 +76,8 @@ angular.module('petroglyphApp')
               {label: 'Sign out', url: '#'},
             ];
 
+            $rootScope.$broadcast('oauth.authenticated');
+
             $rootScope.$apply();
           }
         });
