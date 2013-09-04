@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('petroglyphApp', ['ngRoute', 'ngResource', 'AngularOauthGoogle'])
+angular.module('petroglyphApp', ['ngRoute', 'ngResource', 'AngularOauthGoogle', 'AngularYouTube'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
