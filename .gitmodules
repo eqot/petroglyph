@@ -1,6 +1,0 @@
-[submodule "app/modules/angular-oauth-google"]
-	path = app/modules/angular-oauth-google
-	url = https://github.com/eqot/angular-oauth-google.git
-[submodule "app/modules/angular-youtube"]
-	path = app/modules/angular-youtube
-	url = https://github.com/eqot/angular-youtube.git
