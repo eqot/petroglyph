@@ -19,6 +19,10 @@ angular.module('petroglyphApp', ['ngRoute', 'ngResource', 'AngularOauthGoogle', 
         templateUrl: 'views/content.html',
         controller: 'ContentCtrl'
       })
+      .when('/upload', {
+        templateUrl: 'views/upload.html',
+        controller: 'UploadCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
