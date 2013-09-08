@@ -48,8 +48,11 @@
               <a href="#/upload">Upload</a>
             </li>
           </ul>
+
           <form class="navbar-form navbar-right">
             <div class="btn-group">
+              <oauth-google id="@@google_crednetial"
+                scopes="https://www.googleapis.com/auth/userinfo.email,https://www.googleapis.com/auth/youtube.readonly"></oauth-google>
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                 {{account}} <span class="caret"></span>
               </button>
@@ -95,9 +98,6 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <script type="text/javascript" src="//www.google.com/jsapi"></script>
-    <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=onJSClientLoad"></script>
-
         <!-- build:js scripts/plugins.js -->
         <!--
         <script src="bower_components/bootstrap-sass/js/bootstrap-affix.js"></script>
@@ -121,6 +121,9 @@
         <script src="bower_components/angular-resource/angular-resource.js"></script>
         <script src="bower_components/angular-cookies/angular-cookies.js"></script>
         <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+
+        <script src="bower_components/angular-oauth-google/angular-oauth-google.js"></script>
+        <script src="bower_components/angular-youtube/angular-youtube.js"></script>
         <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -131,9 +134,6 @@
         <script src="scripts/controllers/upload.js"></script>
         <script src="scripts/directives/listitem.js"></script>
         <script src="scripts/services/content.js"></script>
-
-        <script src="bower_components/angular-oauth-google/angular-oauth-google.js"></script>
-        <script src="bower_components/angular-youtube/angular-youtube.js"></script>
         <!-- endbuild -->
 </body>
 </html>

@@ -1,16 +1,10 @@
 'use strict';
 
 angular.module('petroglyphApp')
-  .controller('HomeCtrl', function ($scope, oauthGoogle) {
-
-    $scope.signedIn = false;
-    $scope.$on('oauth.authenticated', function () {
-      $scope.signedIn = true;
-      $scope.$apply();
-    });
+  .controller('HomeCtrl', function ($scope, oauthGoogleService) {
 
     $scope.signInGoogle = function (immediate) {
-      oauthGoogle.signIn(immediate);
+      oauthGoogleService.signIn(immediate);
     };
 
   });

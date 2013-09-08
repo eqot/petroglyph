@@ -46,7 +46,7 @@ module.exports = function (grunt) {
         tasks: ['copy:styles', 'autoprefixer']
       },
       replace: {
-        files: ['<%= yeoman.app %>/bower_components/angular-oauth-google/angular-oauth-google.js'],
+        files: ['<%= yeoman.app %>/index.html'],
         tasks: ['replace']
       },
       livereload: {
@@ -357,8 +357,8 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           flatten: true,
-          src: ['app/bower_components/angular-oauth-google/angular-oauth-google.js'],
-          dest: '.tmp/bower_components/angular-oauth-google'
+          src: ['app/index.html'],
+          dest: '.tmp'
         }]
       }
     }
