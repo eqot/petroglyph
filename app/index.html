@@ -50,9 +50,9 @@
           </ul>
 
           <form class="navbar-form navbar-right">
+            <oauth-google id="@@google_crednetial"
+              scopes="https://www.googleapis.com/auth/userinfo.email,https://www.googleapis.com/auth/youtube.readonly"></oauth-google>
             <div class="btn-group">
-              <oauth-google id="@@google_crednetial"
-                scopes="https://www.googleapis.com/auth/userinfo.email,https://www.googleapis.com/auth/youtube.readonly"></oauth-google>
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                 {{account}} <span class="caret"></span>
               </button>
